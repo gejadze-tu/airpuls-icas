@@ -25,8 +25,9 @@ def plot_processed_iq_data(iq_processed: np.ndarray[np.complex128]) -> Figure:
             ax: Axes = axes[rx, tx]
             ax.plot(np.abs(iq_processed[rx, tx, 0, :]))
             ax.set_title(f'RX{rx+1} - TX{tx+1}')
-            ax.set_ylabel('Magnitude')
             ax.grid(True)
+            if tx == 0:
+                ax.set_ylabel('Magnitude')
             if rx == 3:
                 ax.set_xlabel('Subcarrier Index')
 
